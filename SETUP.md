@@ -1,17 +1,20 @@
 # Setup Guide
 
-This guide walks you through setting up Katelyn for local development or deployment.
+This guide explains how to install, configure, and run Katelyn for local development or production deployment.
 
 ---
 
-# Requirements
+# Prerequisites
 
-Before getting started, ensure you have the following installed:
+Before setting up the project, ensure the following software is installed:
 
 * Node.js **v20** or later
 * PostgreSQL
 * Git
-* A Telegram Bot Token from **@BotFather**
+
+You'll also need:
+
+* A Telegram Bot Token obtained from **@BotFather**
 * One or more Google Gemini API keys
 
 ---
@@ -27,6 +30,8 @@ cd Katelyn
 
 # 2. Install Dependencies
 
+Install all required packages.
+
 ```bash
 npm install
 ```
@@ -35,17 +40,17 @@ npm install
 
 # 3. Configure Environment Variables
 
-Create a `.env` file in the project root and add the following values:
+Create a `.env` file in the project root.
 
 ```env
-# Server
+# Server Configuration
 PORT=5000
 BOT_URL=https://your-domain.com
 
 # Telegram
-BOT_API_KEY=your_telegram_bot_token
+BOT_API_KEY=your_bot_token
 
-# Google Gemini API Keys
+# Gemini API Keys
 GOOGLE_API_KEY1=
 GOOGLE_API_KEY2=
 GOOGLE_API_KEY3=
@@ -56,37 +61,57 @@ GOOGLE_API_KEY5=
 DATABASE_URL=postgresql://username:password@host:port/database
 ```
 
-> **Note:** Multiple Gemini API keys are recommended to improve reliability under heavy usage, USE WITH CAUTION.
+### Environment Variables
+
+| Variable            | Description                                            |
+| ------------------- | ------------------------------------------------------ |
+| `PORT`              | HTTP server port                                       |
+| `BOT_URL`           | Public URL of the deployed application                 |
+| `BOT_API_KEY`       | Telegram Bot API token                                 |
+| `GOOGLE_API_KEY1-5` | Gemini API credentials used for automatic key rotation |
+| `DATABASE_URL`      | PostgreSQL connection string                           |
+
+> **Note**
+>
+> Katelyn supports multiple Gemini API keys. During runtime the application automatically rotates between available keys to distribute requests and temporarily removes failed keys from rotation until they recover.
+>
+> A single key is supported, although multiple keys are recommended for improved availability.
 
 ---
 
 # 4. Create the Database
 
-Create a PostgreSQL database and update the `DATABASE_URL` in your `.env` file to point to it.
+Create an empty PostgreSQL database and update the `DATABASE_URL` to reference it.
+
+No manual table creation is required.
 
 ---
 
-# 5. Run Database Migrations
+# 5. Database Initialization
 
-Execute the migration files included with the project to create all required tables. 
+Database migrations execute automatically during application startup.
+
+When Katelyn launches for the first time, the migration system creates any missing tables required by the application.
+
+If automatic migration is disabled, migrations can also be executed manually.
 
 ```bash
-node migrations.js # or start the server, migrations run automatically
+node migrations.js
 ```
 
-If you're setting up the project for the first time, ensure every migration completes successfully before starting the bot.
+Always verify that migrations complete successfully before using the bot.
 
 ---
 
-# 6. Start the Bot
+# 6. Start the Application
 
-### Development
+## Development
 
 ```bash
 npm run dev
 ```
 
-### Production
+## Production
 
 ```bash
 node index.js
@@ -96,51 +121,88 @@ node index.js
 
 # 7. Verify the Installation
 
-If everything is configured correctly:
+A successful startup should produce the following results:
 
-* The bot starts without errors.
-* PostgreSQL connects successfully.
-* The Telegram bot comes online.
-* Sending `/start` to your bot receives a response.
+* Application starts without runtime errors.
+* PostgreSQL connection is established.
+* Database migrations complete successfully.
+* Telegram bot connects successfully.
+* HTTP server starts.
+* Health monitoring initializes.
+* The bot responds to `/start`.
+
+If all of the above succeed, the installation is complete.
 
 ---
 
 # Troubleshooting
 
-### Bot doesn't respond
+## Bot does not respond
 
-* Verify `BOT_API_KEY` is correct.
-* Ensure the bot has been started by messaging it on Telegram.
+* Verify `BOT_API_KEY` is valid.
+* Confirm the bot has been started from Telegram.
+* Ensure the application is running without startup errors.
 
-### Database connection failed
+---
 
-* Confirm PostgreSQL is running.
-* Verify the `DATABASE_URL` is correct.
+## Database connection failed
 
-### Gemini API errors
+* Verify PostgreSQL is running.
+* Confirm the `DATABASE_URL` is correct.
+* Ensure the target database exists.
 
-* Ensure your API keys are valid.
-* Verify at least one API key has available quota.
+---
 
-### Missing environment variables
+## Gemini API errors
 
-Double-check that every required variable exists in your `.env` file before starting the application.
+* Verify each configured API key is valid.
+* Confirm at least one key has available quota.
+* Check that environment variables were loaded correctly.
+
+---
+
+## Missing environment variables
+
+If the application exits during startup, verify every required variable exists inside the `.env` file (Checkout the .env.example) file.
+
+
+
+---
+
+## Migration failures
+
+If migrations fail:
+
+1. Verify database permissions.
+2. Ensure the database exists.
+3. Restart the application after correcting the issue.
 
 ---
 
 # Updating
 
-To update the project:
+To update an existing installation:
 
 ```bash
 git pull
 npm install
 ```
 
-If the release includes database changes, run the latest migrations before restarting the bot.
+Restart the application after updating.
+
+Any new database migrations will execute automatically during startup.
+
+---
+
+# Additional Documentation
+
+* **README.md** — Project overview
+* **ARCHITECTURE.md** — Internal architecture and execution model
+* **CHANGELOG.md** — Release history
+* **LICENSE** — License information
 
 ---
 
 # Need Help?
 
-If you encounter any issues during setup, feel free to open an issue on the repository or contact the developer.
+If you encounter an issue that isn't covered here, open an issue in the repository or contact the project maintainer.

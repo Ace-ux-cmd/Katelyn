@@ -1,39 +1,58 @@
-# Overview 
+# Katelyn
 
+**Katelyn** is a personality-driven AI companion built for Telegram.
 
-**Katelyn** is a personality-driven AI companion for Telegram. More than just another chatbot, she's designed to feel engaging, expressive, and enjoyable to talk to—whether you're chatting one-on-one, sending photos, sharing voice messages, or hanging out in a group.
+She isn't designed to replace search engines or act like a generic virtual assistant. Instead, she's built to hold natural conversations, react with personality, understand images and voice messages, remember previous interactions, and make chatting feel engaging.
 
-Whether you're looking for a conversation, a game to pass the time, or someone to respond with personality, Katelyn is built to make every interaction feel a little more human.
+Whether you're having a casual conversation, playing games, or interacting in a group chat, Katelyn is designed to feel expressive, consistent, and enjoyable to talk to.
 
 **🤖 Try Katelyn:** https://t.me/kathill_bot
 
 ---
 
-# ✨ Features
+# Features
 
 ### 💬 Natural Conversations
 
-Chat naturally without relying on complicated commands. Katelyn responds with her own personality while remembering previous conversations to keep chats consistent.
+Talk naturally without memorizing commands.
+
+Katelyn responds with a consistent personality and remembers previous conversations, allowing discussions to continue naturally over time.
+
+---
 
 ### 🖼️ Image Understanding
 
-Send an image and ask questions about it. Katelyn can describe what she sees, answer questions, and understand visual context.
+Send a photo and ask questions about it.
 
-### 🎙️ Voice Conversations
+Katelyn can describe images, talk about it, and understand visual context as part of the conversation.
 
-Talk naturally using voice messages. Katelyn can understand spoken messages and even reply with her own voice.
+---
 
-### 👥 Group Chat Support
+### 🎙️ Voice Chat
 
-Add Katelyn to your Telegram groups for conversations, games, and interactive discussions without disrupting normal group chats.
+Prefer speaking instead of typing?
+
+Send voice messages and Katelyn can understand them. She may even respond using her own voice to keep conversations more natural.
+
+---
+
+### 👥 Group Conversations
+
+Add Katelyn to your Telegram group for interactive conversations, games, and community engagement.
+
+She only joins conversations when explicitly addressed, allowing group discussions to continue without unnecessary interruptions.
+
+---
 
 ### 🧠 Conversation Memory
 
-Katelyn remembers past conversations, allowing interactions to feel more continuous instead of starting from scratch every time.
+Katelyn remembers previous conversations, making interactions feel continuous instead of restarting every chat from scratch.
 
-### 🎮 Fun Commands & Games
+---
 
-Enjoy built-in activities including:
+### 🎮 Games & Interactive Features
+
+Built-in activities include:
 
 * 🎲 Slot Machine
 * ❓ Quiz
@@ -41,59 +60,70 @@ Enjoy built-in activities including:
 * 🏆 Daily Rewards
 * 📈 Leaderboards
 
-### 🛡️ Moderation Tools
+---
 
-Owners and administrators have access to moderation and management commands to help keep communities organized.
+### 🛡️ Community Management
+
+Group owners and administrators have access to moderation and management commands designed to help organize communities.
 
 ---
 
-# 💜 Personality
+# Commands
 
-Katelyn isn't designed to act like a generic AI assistant.
-
-She has a consistent personality that balances friendliness, humor, curiosity, and confidence while adapting naturally to different conversations. The goal is to make chatting feel enjoyable rather than transactional.
-
+<div align = "center">
+| Command        | Description                                         |
+| -------------- | --------------------------------------------------- |
+| `/help`        | Display available commands                          |
+| `/daily`       | Claim your daily reward                             |
+| `/rank`        | View your leaderboard ranking                       |
+| `/quiz`        | Start a quiz                                        |
+| `/slot`        | Play the slot machine                               |
+| `/truthordare` | Play Truth or Dare with                             |
+| `/ping`        | Check bot status                                    |
+| `/leave`       | Remove Katelyn from a group *(Administrators only)* |
+</div>
 ---
 
-# 📋 Commands
+# Getting Started
 
-| Command        | Description                          |
-| -------------- | ------------------------------------ |
-| `/help`        | View available commands              |
-| `/daily`       | Claim your daily reward              |
-| `/rank`        | View your leaderboard rank           |
-| `/quiz`        | Start a quiz                         |
-| `/slot`        | Play the slot machine                |
-| `/truthordare` | Play Truth or Dare                   |
-| `/ping`        | View bot status                      |
-| `/leave`       | Remove the bot from a group (Admins) |
-
----
-
-# 🚀 Getting Started
+Getting started takes less than a minute.
 
 1. Open Telegram.
-2. Visit **https://t.me/kathill_bot**
+2. Search for **@kathill_bot**.
 3. Press **Start**.
-4. Begin chatting!
+4. Begin chatting.
 
-You can also add Katelyn to your Telegram group and interact with her there.
-
----
-
-# 📸 Screenshots
-
-Screenshots will be added soon.
+You can also invite Katelyn into your group chats to unlock multiplayer features and interactive commands.
 
 ---
 
-# 📜 Changelog
+# Documentation
 
-See **CHANGELOG.md** for a complete history of new features, improvements, and bug fixes.
+Interested in how Katelyn works internally?
+
+* **README.md** – Project overview
+* **ARCHITECTURE.md** – Internal architecture and developer documentation
+* **CHANGELOG.md** – Release history
+* **SETUP.md** – Build your version
+* **LICENSE** – License information
 
 ---
 
-# 👨‍💻 Developer
+# Screenshots
+
+Screenshots will be added in a future release.
+
+---
+
+# Contributing
+
+Bug reports, feature requests, and pull requests are welcome.
+
+If you'd like to contribute, please review the architecture and setup documentation before making significant changes to ensure new features align with the existing design.
+
+---
+
+# Developer
 
 **Mbonu Chidalu**
 
@@ -108,12 +138,8 @@ https://wa.me/2347054971517
 
 ---
 
-# ❤️ Contributing
+# License
 
-Suggestions, bug reports, and feature ideas are always welcome. Feel free to open an issue, fork or submit a pull request.
+This project is released for educational and personal development purposes.
 
----
-
-# 📄 License
-
-This project is provided for educational and personal development purposes. See the **LICENSE** for more information.
+See the **LICENSE** file for complete licensing information.
