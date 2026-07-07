@@ -4,6 +4,8 @@ All notable changes to the Conversational Telegram Bot (Katelyn) will be documen
 
 ---
 
+<img src="media/v2.1.0 Update banner.jpg" alt="Katelyn v2.0 Banner" width="450"/>
+
 # v2.1.0 - Model Optimization, Voice Support & Architecture Improvements
 
 ## Added
@@ -57,10 +59,10 @@ All notable changes to the Conversational Telegram Bot (Katelyn) will be documen
 
 ---
 
+
+<img src="media/V2.0.0 Banner.jpg" alt="Katelyn v2.0 Banner" width="450"/>
+
 # v2.0.0 - PostgreSQL Migration, Multimodal Support & Core Architecture Rewrite
-
-
-<img src="media/V2.0.0 Banner.jpg" alt="Katelyn v2.0 Banner" width="400"/>
 
 ## Added
 

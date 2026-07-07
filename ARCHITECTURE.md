@@ -1,5 +1,8 @@
 # Katelyn Architecture
 
+<img src="media/architecture_flow.png" alt="Architecture Image" width="900"/>
+
+
 # Table of Contents
 
 * [1. Introduction](#1-introduction)
@@ -731,19 +734,19 @@ The current request contract contains the following fields.
 
 | Field            | Description                                                                                       |
 | ---------------- | ------------------------------------------------------------------------------------------------- |
-| `msgId`          | Unique Telegram message identifier.                                                               |
-| `chatId`         | Identifier of the conversation where the request originated.                                      |
-| `userId`         | Unique Telegram user identifier.                                                                  |
-| `username`       | Display name associated with the originating user.                                                |
-| `message`        | User supplied textual content.                                                                    |
-| `chatType`       | Conversation scope (private or group).                                                            |
-| `retries`        | Current retry counter used by the recovery pipeline.                                              |
-| `photo`          | Telegram image payload when present.                                                              |
-| `isVoiceMessage` | Indicates whether the request originated as voice input.                                          |
-| `voiceFileId`    | Telegram identifier used to retrieve voice media.                                                 |
-| `hasTranscribed` | Indicates whether voice input has already completed transcription.                                |
-| `rawMsg`         | Original Telegram update preserved for transport-level operations that require complete metadata. |
-| `user`           | Internal user entity retrieved from the persistence layer.                                        |
+|  msgId           | Unique Telegram message identifier.                                                               |
+|  chatId          | Identifier of the conversation where the request originated.                                      |
+|  userId          | Unique Telegram user identifier.                                                                  |
+|  username        | Display name associated with the originating user.                                                |
+|  message         | User supplied textual content.                                                                    |
+|  chatType        | Conversation scope (private or group).                                                            |
+|  retries         | Current retry counter used by the recovery pipeline.                                              |
+|  photo           | Telegram image payload when present.                                                              |
+|  isVoiceMessage  | Indicates whether the request originated as voice input.                                          |
+|  voiceFileId     | Telegram identifier used to retrieve voice media.                                                 |
+|  hasTranscribed  | Indicates whether voice input has already completed transcription.                                |
+|  rawMsg          | Original Telegram update preserved for transport-level operations that require complete metadata. |
+|  user            | Internal user entity retrieved from the persistence layer.                                        |
 
 ```
 ---
