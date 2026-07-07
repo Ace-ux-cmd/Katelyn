@@ -73,14 +73,14 @@ Group owners and administrators have access to moderation and management command
 ```text
 | Command        | Description                                         |
 | -------------- | --------------------------------------------------- |
-| `/help`        | Display available commands                          |
-| `/daily`       | Claim your daily reward                             |
-| `/rank`        | View your leaderboard ranking                       |
-| `/quiz`        | Start a quiz                                        |
-| `/slot`        | Play the slot machine                               |
-| `/truthordare` | Play Truth or Dare with                             |
-| `/ping`        | Check bot status                                    |
-| `/leave`       | Remove Katelyn from a group *(Administrators only)* |
+|  /help         | Display available commands                          |
+|  /daily        | Claim your daily reward                             |
+|  /rank         | View your leaderboard ranking                       |
+|  /quiz         | Start a quiz                                        |
+|  /slot         | Play the slot machine                               |
+|  /truthordare  | Play Truth or Dare with                             |
+|  /ping         | Check bot status                                    |
+|  /leave        | Remove Katelyn from a group *(Administrators only)* |
 ```
 ---
 
