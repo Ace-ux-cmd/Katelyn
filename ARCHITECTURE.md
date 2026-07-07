@@ -173,7 +173,7 @@ Each layer communicates only through well-defined interfaces, ensuring that impl
 
 ## Architectural Layers
 
-<div align="center">
+```text
                     Telegram Platform
                            │
                            ▼
@@ -214,7 +214,7 @@ Each layer communicates only through well-defined interfaces, ensuring that impl
             ▼                               ▼
   PostgreSQL Persistence          Telegram Response
 
-</div>
+```
 
 ---
 
@@ -331,7 +331,7 @@ Although text, image, and voice messages require different preprocessing stages,
 
 ## Processing Flow
 
-<div align="center">
+```text
 Telegram Update
         │
         ▼
@@ -377,7 +377,7 @@ Framework         │
                   │
                   ▼
        Telegram Response Delivery
-</div>
+```
 
 ---
 
@@ -554,7 +554,7 @@ The Update Dispatcher is responsible for:
 
 ## Architectural Position
 
-<div align="center">
+```text
 Telegram
     │
     ▼
@@ -564,7 +564,7 @@ Update Dispatcher
     │
     ▼
 Message Handler
-</div>
+```
 
 The dispatcher represents the only subsystem responsible for interpreting Telegram update intent.
 
@@ -727,7 +727,7 @@ Downstream components operate exclusively on this structure and never interact d
 
 The current request contract contains the following fields.
 
-<div align="center">
+```text
 
 | Field            | Description                                                                                       |
 | ---------------- | ------------------------------------------------------------------------------------------------- |
@@ -745,7 +745,7 @@ The current request contract contains the following fields.
 | `rawMsg`         | Original Telegram update preserved for transport-level operations that require complete metadata. |
 | `user`           | Internal user entity retrieved from the persistence layer.                                        |
 
-</div>
+```
 ---
 
 ## Request Normalization
@@ -808,7 +808,7 @@ No request may enter the Conversation Orchestrator without first being admitted 
 
 This establishes a single execution boundary for every conversational transaction within the application.
 
-<div align = "center">
+```text
                 Message Handler
                        │
                        ▼
@@ -817,7 +817,7 @@ This establishes a single execution boundary for every conversational transactio
                        ▼
          Conversation Orchestrator
 
-</div>
+```
 ---
 
 ## Execution Model
@@ -920,7 +920,7 @@ The orchestrator contains minimal business logic itself. Instead, it delegates s
 
 The Conversation Orchestrator sits at the center of the conversational pipeline.
 
-<div align = "center">
+```text
                  Queue Engine
                       │
                       ▼
@@ -943,7 +943,7 @@ The Conversation Orchestrator sits at the center of the conversational pipeline.
                       │
                       ▼
              Telegram Delivery
-</div>
+```
 
 Every conversational request, regardless of its origin, eventually returns to the orchestrator before execution completes.
 
@@ -1113,7 +1113,7 @@ This abstraction isolates the database schema from provider-specific request for
 
 ## Architectural Position
 
-<div align = "center">
+```text
            PostgreSQL
                 │
                 ▼
@@ -1121,7 +1121,7 @@ This abstraction isolates the database schema from provider-specific request for
                 │
                 ▼
       AI Response Engine
-</div>
+```
 
 The Conversation Context Engine acts as the only subsystem responsible for translating persisted conversation history into an AI-compatible representation.
 
@@ -1241,7 +1241,7 @@ The AI Response Engine represents the only architectural boundary permitted to c
 
 ## Architectural Position
 
-<div align = "center">
+```text
           Conversation Context Engine
                      │
                      ▼
@@ -1259,7 +1259,7 @@ The AI Response Engine represents the only architectural boundary permitted to c
                      │
                      ▼
          Generated Conversational Response
-</div>
+```
 
 No subsystem outside the AI Response Engine communicates directly with the language model.
 
@@ -1454,7 +1454,7 @@ Every conversation eventually becomes textual.
 
 ## Processing Architecture
 
-<div align = "center">
+```text
                     Conversation Orchestrator
                               │
           ┌───────────────────┼───────────────────┐
@@ -1468,7 +1468,7 @@ Every conversation eventually becomes textual.
                               │
                               ▼
                Conversation Context Engine
-</div>
+```
 
 Although preprocessing differs between modalities, execution always converges before conversational context is constructed.
 
@@ -1506,7 +1506,7 @@ Speech recognition remains completely isolated from conversational generation.
 
 ## Processing Flow
 
-<div align = "center">
+```text
 Telegram Voice Message
           │
           ▼
@@ -1520,7 +1520,7 @@ Telegram Voice Message
           │
           ▼
  Conversation Orchestrator
-</div>
+```
 
 Voice recordings are retrieved from Telegram using the stored media identifier.
 
@@ -1562,7 +1562,7 @@ This allows visual observations to become part of conversational memory using th
 
 ## Processing Flow
 
-<div align = "center">
+```text
 Telegram Image
         │
         ▼
@@ -1579,7 +1579,7 @@ Conversation Persistence
         │
         ▼
 Conversation Context Engine
-</div>
+```
 
 Images are retrieved directly from Telegram before analysis begins.
 
@@ -1669,7 +1669,7 @@ This design prioritizes natural group dynamics over maximum interaction frequenc
 
 ## Architectural Position
 
-<div align = "center">
+```text
           Message Handler
                 │
                 ▼
@@ -1677,7 +1677,7 @@ This design prioritizes natural group dynamics over maximum interaction frequenc
                 │
                 ▼
  Conversation Orchestrator
-</div>
+```
 
 The Group Conversation Engine executes before conversational processing begins.
 
@@ -1833,7 +1833,7 @@ This distinction prevents unrelated application data from influencing conversati
 
 ## Architectural Position
 
-<div align = "center">
+```text
                  Application
                       │
                       ▼
@@ -1847,7 +1847,7 @@ This distinction prevents unrelated application data from influencing conversati
                       │
                       ▼
                  PostgreSQL
-</div>
+```
 
 The persistence layer remains completely independent of conversational generation.
 
@@ -2025,7 +2025,7 @@ Separating permanent personality from temporary situational context allows the b
 
 ## Architectural Position
 
-<div align = "center">
+```text
             Current Date & Time
                     │
                     ▼
@@ -2036,7 +2036,7 @@ Separating permanent personality from temporary situational context allows the b
                     │
                     ▼
           Gemini Inference Request
-</div>
+```
 
 The Scheduling Engine executes during request construction and contributes runtime context before inference begins.
 
@@ -2178,7 +2178,7 @@ By separating commands from AI-generated responses, the application preserves bo
 
 ## Architectural Position
 
-<div align = "center">
+```text
 Telegram Update
        │
        ▼
@@ -2195,7 +2195,7 @@ Command Module
        │
        ▼
 Telegram Response
-</div>
+```
 
 Commands never enter the conversational execution pipeline unless explicitly designed to do so.
 
@@ -2358,7 +2358,7 @@ For this reason, Katelyn treats failures as recoverable whenever possible. Detec
 
 ## Architectural Position
 
-<div align = "center">
+```text
                  Operational Services
                         │
         ┌───────────────┼────────────────┐
@@ -2369,7 +2369,7 @@ For this reason, Katelyn treats failures as recoverable whenever possible. Detec
         └───────────────┼────────────────┘
                         ▼
                Application Runtime
-</div>
+```
 
 These services execute independently of the conversational pipeline while supporting overall system availability.
 

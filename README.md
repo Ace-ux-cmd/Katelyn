@@ -70,7 +70,7 @@ Group owners and administrators have access to moderation and management command
 
 # Commands
 
-<div align = "center">
+```text
 | Command        | Description                                         |
 | -------------- | --------------------------------------------------- |
 | `/help`        | Display available commands                          |
@@ -81,7 +81,7 @@ Group owners and administrators have access to moderation and management command
 | `/truthordare` | Play Truth or Dare with                             |
 | `/ping`        | Check bot status                                    |
 | `/leave`       | Remove Katelyn from a group *(Administrators only)* |
-</div>
+```
 ---
 
 # Getting Started
